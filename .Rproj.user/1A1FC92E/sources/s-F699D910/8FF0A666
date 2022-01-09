@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1641697120185.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3656277020",
+    "id" : "8FF0A666",
+    "lastKnownWriteTime" : 1641726211,
+    "last_content_update" : 1641726211078,
+    "path" : "D:/DDog/analysis/shiny_project/note_greatgame/app.R",
+    "project_path" : "app.R",
+    "properties" : {
+        "cursorPosition" : "41,59",
+        "scrollLine" : "13"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

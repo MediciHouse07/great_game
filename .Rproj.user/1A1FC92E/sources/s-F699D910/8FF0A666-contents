@@ -1,0 +1,48 @@
+library(shiny)
+library(dplyr)
+library(readr)
+
+figure_df <- read_csv("data/gender_submission.csv")
+
+#figure_df <- read.csv('data/figures.csv')
+
+# Define UI for application that draws a histogram
+ui <- fluidPage(
+   
+   # Application title
+   titlePanel("The Great Game"),
+   
+         sliderInput("slider_year",
+                     "Year",
+                     min = 1800,
+                     max = 1900,
+                     value = 1836,
+                     step = 1),
+         radioButtons("radio", "Name", c('J. P. Morgan','Sir John Tobin')),
+      
+      # Show a plot of the generated distribution
+
+   imageOutput("photo"),
+   textOutput("bio")
+   )
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+   output$photo <- renderImage({
+     figure_sub <- filter(figure_df, name==input$radio)
+     list(
+       src = file.path(figure_sub$pic[1]),
+       contentType = "image/png",
+       width="30%",
+       height="60%"
+     )
+   }, deleteFile = FALSE)
+   output$bio <- 
+       renderText({
+         figure_sub <- filter(figure_df, name==input$radio)
+         figure_sub$info
+       })
+}
+
+# Run the application 
+shinyApp(ui = ui, server = server)
